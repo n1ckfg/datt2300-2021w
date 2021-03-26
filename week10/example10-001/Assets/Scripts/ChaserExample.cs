@@ -8,7 +8,9 @@ public class ChaserExample : MonoBehaviour {
     public float speed = 0.5f;
 
     void Update() {
-        transform.position = Vector3.Lerp(transform.position, target.position, speed);        
+        if (Input.GetMouseButton(0)) {
+            transform.position = Vector3.Lerp(transform.position, target.position, speed);
+        }
     }
 
 }
