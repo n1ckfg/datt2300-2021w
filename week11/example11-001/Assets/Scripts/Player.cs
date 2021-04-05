@@ -20,10 +20,10 @@ public class Player : MonoBehaviour
     private void Update() {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight) {
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && transform.position.y < maxHeight) {
             targetPos = new Vector2(transform.position.x, transform.position.y + yIncrement);
             Debug.Log(transform.position);
-        } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight) {
+        } else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && transform.position.y > minHeight) {
             targetPos = new Vector2(transform.position.x, transform.position.y - yIncrement);
             Debug.Log(transform.position);
         }
