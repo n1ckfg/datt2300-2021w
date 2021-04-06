@@ -34,7 +34,7 @@ public class Parallaxer : MonoBehaviour {
             delta = Vector2.left * speed * Time.deltaTime;
             offsetX = (Screen.width / Camera.main.orthographicSize) / 100f;
             endX = startX - spriteWidth;
-            Debug.Log("spriteWidth: " + spriteWidth + ", startX: " + startX + ", endX: " + endX + ", offsetX: " + offsetX);
+            //Debug.Log("spriteWidth: " + spriteWidth + ", startX: " + startX + ", endX: " + endX + ", offsetX: " + offsetX);
 
             transform.Translate(delta);
 
