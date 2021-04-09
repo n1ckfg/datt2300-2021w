@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float minHeight;
     public int health;
     public bool alive = true;
+    public GameObject explosionPrefab;
 
     private Vector2 targetPos;
     private Animator animator;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour {
         if (alive && health <= 0) {
             alive = false;
             Debug.Log("Player has died.");
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

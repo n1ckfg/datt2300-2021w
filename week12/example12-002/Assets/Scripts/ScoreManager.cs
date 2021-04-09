@@ -10,13 +10,16 @@ public class ScoreManager : MonoBehaviour {
     public TMP_Text healthDisplay;
     public Player player;
     public MenuManager menuManager;
+    public bool gameOver = false;
+    public float restartDelay = 1f;
 
     private void Update() {
         scoreDisplay.text = score.ToString();
         healthDisplay.text = player.health.ToString();
 
-        if (player.health <= 0) {
-            menuManager.restart();
+        if (!gameOver && !player.alive) {
+            gameOver = true;
+            StartCoroutine(restartGame());
         }
     }
 
@@ -27,5 +30,10 @@ public class ScoreManager : MonoBehaviour {
             Debug.Log(score);
         }
     }   
+    
+    private IEnumerator restartGame() {
+        yield return new WaitForSeconds(restartDelay);
+        menuManager.restart();
+    }
 
 }

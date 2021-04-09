@@ -1461,6 +1461,7 @@ MonoBehaviour:
   minHeight: -0.2
   health: 3
   alive: 1
+  explosionPrefab: {fileID: 6652898451453574380, guid: fdded6a38cd44d0499da86ee524d1a42, type: 3}
 --- !u!50 &2131876138
 Rigidbody2D:
   serializedVersion: 4
