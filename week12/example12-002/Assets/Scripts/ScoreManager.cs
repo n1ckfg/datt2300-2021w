@@ -9,31 +9,18 @@ public class ScoreManager : MonoBehaviour {
     public TMP_Text scoreDisplay;
     public TMP_Text healthDisplay;
     public Player player;
-    public MenuManager menuManager;
-    public bool gameOver = false;
-    public float restartDelay = 1f;
 
     private void Update() {
-        scoreDisplay.text = score.ToString();
-        healthDisplay.text = player.health.ToString();
-
-        if (!gameOver && !player.alive) {
-            gameOver = true;
-            StartCoroutine(restartGame());
-        }
+        scoreDisplay.text = "Score: " + score;
+        healthDisplay.text = "Health: " + player.health;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Obstacle")) {
             Destroy(other.gameObject);
             score++;
-            Debug.Log(score);
+            Debug.Log("Score: " + score);
         }
-    }   
-    
-    private IEnumerator restartGame() {
-        yield return new WaitForSeconds(restartDelay);
-        menuManager.restart();
     }
 
 }
